@@ -3,7 +3,7 @@ layout: default
 title: "Sebastián Berrueta"
 ---
 
-# Sebastián Berrueta
+# Página principal
 
 ## Redes Sociales
 
@@ -12,4 +12,5 @@ title: "Sebastián Berrueta"
   <a href="https://instagram.com/berruetx" class="btn instagram">Instagram</a>
 </div>
 
+## Links útiles
 <a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a Liceo</a>
