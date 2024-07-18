@@ -14,3 +14,4 @@ title: "Sebastián Berrueta"
 
 ## Links útiles
 <a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a Liceo</a>
+<a href="https://tools.berrueta.xyz" class="btn main-btn">Ir a Herramientas</a>
