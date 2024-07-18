@@ -11,12 +11,16 @@
             color: #333;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
             margin: 0;
+            overflow: hidden;
+            position: relative;
         }
         .container {
+            position: relative;
+            z-index: 1;
             max-width: 600px;
             margin: 0 auto;
+            padding: 50px;
         }
         h1 {
             font-size: 4em;
@@ -46,9 +50,20 @@
         .button:hover {
             background-color: #0056b3;
         }
+        .background-404 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20em;
+            color: rgba(200, 200, 200, 0.5);
+            z-index: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <div class="background-404">404</div>
     <div class="container">
         <h1>¡Oops! ¡Te perdiste!</h1>
         <p>Parece que te has aventurado en territorio desconocido. 🌍</p>
