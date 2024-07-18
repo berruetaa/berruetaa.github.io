@@ -61,22 +61,22 @@ a:hover {
 }
 
 .twitter {
-  background-color: #3498db;
+  background-color: #123349;
   color: #fff;
 }
 
 .twitter:hover {
-  background-color: #2980b9;
+  background-color: #0a1f2e;
   transform: scale(1.05);
 }
 
 .instagram {
-  background-color: #e4405f;
+  background-color: #641b29;
   color: #fff;
 }
 
 .instagram:hover {
-  background-color: #c0392b;
+  background-color: #461611;
   transform: scale(1.05);
 }
 
