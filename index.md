@@ -12,4 +12,4 @@ title: "Sebastián Berrueta"
   <a href="https://instagram.com/berruetx" class="btn instagram">Instagram</a>
 </div>
 
-<a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a liceo.berrueta.xyz</a>
+<a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a Liceo</a>
