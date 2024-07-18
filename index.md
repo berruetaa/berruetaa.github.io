@@ -7,7 +7,9 @@ title: "Sebastián Berrueta"
 
 ## Redes Sociales
 
-- [Twitter](https://twitter.com/berruetx)
-- [Instagram](https://instagram.com/berruetx)
+<div class="social-links">
+  <a href="https://twitter.com/berruetx" class="btn twitter">Twitter</a>
+  <a href="https://instagram.com/berruetx" class="btn instagram">Instagram</a>
+</div>
 
-[Ir a Liceo](https://liceo.berrueta.xyz)
+<a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a liceo.berrueta.xyz</a>
