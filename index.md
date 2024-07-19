@@ -61,7 +61,7 @@ title1: "Sebastián Berrueta"
   justify-content: center; /* Horizontally center text */
   height: 40px; /* Fixed height */
   padding: 0 15px; /* Horizontal padding */
-  border: 2px solid #fff; /* White border */
+  border: 2px solid transparent; /* White border */
   border-radius: 5px; /* Rounded corners */
   text-decoration: none; /* Remove underline from link */
   color: rgba(0, 0, 0, 0); /* Text color */
