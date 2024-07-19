@@ -15,8 +15,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <style>
+    #status-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background-color: #000000;
+      z-index: 9999;
+    }
+    body {
+      padding-top: 20px;
+    }
+    header {
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  <div id="status-bar"></div>
   <div id="stars"></div>
   <header>
     <h1>{{ page.title1 }}</h1>
@@ -28,5 +46,19 @@
     <p>&copy; {{ site.time | date: '%Y' }} </p>
   </footer>
   <script src="{{ '/assets/js/stars.js' | relative_url }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var statusBar = document.getElementById('status-bar');
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
+      if (isIOS) {
+        statusBar.style.height = '44px';
+        document.body.style.paddingTop = '44px';
+      } else {
+        statusBar.style.display = 'none';
+        document.body.style.paddingTop = '0';
+      }
+    });
+  </script>
 </body>
 </html>
