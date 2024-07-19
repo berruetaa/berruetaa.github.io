@@ -40,7 +40,7 @@ title1: "Sebastián Berrueta"
 }
 
 
-  .social-btn, .useful-btn {
+  .social-btn, .useful-btn, .game-btn{
   display: flex;
   align-items: center; /* Centra el texto verticalmente */
   justify-content: center; /* Centra el texto horizontalmente */
@@ -68,6 +68,16 @@ title1: "Sebastián Berrueta"
   .useful-btn.main-btn {
     background-color: #28a745; /* Color específico para los botones principales */
   }
+
+  .game-btn.flappy {
+    background: url('/assets/images/ELReoK.png') no-repeat center center; /* Ruta a la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el botón */
+  }
+
+  .game-btn-cpool {
+    background: url('/assets/images/combopool_v4.p8.png') no-repeat center center; /* Ruta a la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el botón */
+  }
 </style>
 
 # Página principal
@@ -92,7 +102,7 @@ title1: "Sebastián Berrueta"
   <div class="custom-container">
     <h2>Juegos</h2>
     <div class="useful-links">
-      <a href="/juegos/flappy/" class="useful-btn main-btn">Flappy Bird</a>
+      <a href="/juegos/flappy/" class="useful-btn main-btn">Smashy Pipe</a>
       <a href="/juegos/combopool/" class="useful-btn main-btn">Combo Pool</a>
     </div>
   </div>
