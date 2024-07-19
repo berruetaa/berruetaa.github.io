@@ -6,7 +6,7 @@ title: "Sebastián Berrueta"
 <style>
   .custom-container {
     background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde negro con 50% de opacidad */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde negro con 50% de opacidad */
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
