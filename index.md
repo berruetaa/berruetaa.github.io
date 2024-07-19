@@ -13,7 +13,7 @@ title: "Sebastián Berrueta"
 
   .custom-container {
     background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde negro con 50% de opacidad */
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde negro con 50% de opacidad */
     border-radius: 10px;
     padding: 20px;
     max-width: 400px; /* Ancho máximo del recuadro */
@@ -26,13 +26,29 @@ title: "Sebastián Berrueta"
     margin-bottom: 10px; /* Espacio debajo del título */
   }
 
+  .social-links, .useful-links {
+    display: flex; /* Usa flexbox para los enlaces */
+    flex-direction: column; /* Los enlaces se apilan verticalmente */
+  }
+
   .social-links a, .useful-links a {
-    display: block;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espacio entre los enlaces */
   }
 
   .social-links a:last-child, .useful-links a:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Elimina el margen del último enlace */
+  }
+
+  /* Alineación horizontal para botones dentro de los recuadros */
+  .social-links, .useful-links {
+    display: flex; /* Usar flexbox para alinear los botones horizontalmente */
+    flex-wrap: wrap; /* Permitir el ajuste a la siguiente línea si es necesario */
+    gap: 10px; /* Espacio entre los botones */
+  }
+
+  .social-links a, .useful-links a {
+    flex: 1; /* Hace que los botones ocupen el mismo ancho */
+    text-align: center; /* Centra el texto dentro de los botones */
   }
 </style>
 
