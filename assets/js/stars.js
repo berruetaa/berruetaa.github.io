@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function createMeteor() {
         const meteor = document.createElement('div');
         meteor.classList.add('meteor');
-        meteor.style.top = `${Math.random() * 100}vh`;
-        meteor.style.left = `${Math.random() * 100}vw`;
+        // Posiciones iniciales fuera de la pantalla
+        meteor.style.top = `${-10 - Math.random() * 10}vh`;
+        meteor.style.left = `${-10 - Math.random() * 10}vw`;
         meteor.style.animationDelay = `${Math.random() * 5}s`;
         starField.appendChild(meteor);
     }
