@@ -94,6 +94,7 @@ title1: "Sebastián Berrueta"
     <h2>Juegos</h2>
     <div class="useful-links">
       <a href="/juegos/flappy/" class="useful-btn main-btn">Flappy Bird</a>
+      <a href="/juegos/combopool/" class="useful-btn main-btn">Combo Pool</a>
     </div>
   </div>
 </div>
