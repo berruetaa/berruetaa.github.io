@@ -44,6 +44,7 @@ title: "Sebastián Berrueta"
     color: #fff; /* Color del texto del botón */
     background-color: #007bff; /* Color de fondo del botón, puedes ajustar según el diseño */
     height: 40px;
+    weight: 100px;
   }
 
   .social-btn.twitter {
