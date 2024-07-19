@@ -136,6 +136,10 @@ title1: "Sebastián Berrueta"
   .show-overlay .overlay {
     display: block; /* Show overlay */
   }
+
+  body.no-scroll {
+    overflow: hidden; /* Disable scrolling */
+  }
 </style>
 
 # Página principal
@@ -184,14 +188,17 @@ title1: "Sebastián Berrueta"
   document.addEventListener('DOMContentLoaded', function() {
     var gameItems = document.querySelectorAll('.game-item');
     var overlay = document.getElementById('overlay');
+    var body = document.body;
 
     gameItems.forEach(function(item) {
       item.addEventListener('mouseenter', function() {
         overlay.classList.add('show-overlay');
+        body.classList.add('no-scroll');
       });
 
       item.addEventListener('mouseleave', function() {
         overlay.classList.remove('show-overlay');
+        body.classList.remove('no-scroll');
       });
     });
 
@@ -199,6 +206,7 @@ title1: "Sebastián Berrueta"
     window.onclick = function(event) {
       if (event.target == overlay) {
         overlay.classList.remove('show-overlay');
+        body.classList.remove('no-scroll');
       }
     };
   });
