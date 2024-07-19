@@ -99,10 +99,10 @@ title1: "Sebastián Berrueta"
   </div>
 
   <div class="custom-container">
-    <h2>Juegos</h2>
+    <h2>"Juegos    "</h2>
     <div class="useful-links">
-      <a href="/juegos/flappy/" class="game-btn flappy">Smashy Pipe</a>
-      <a href="/juegos/combopool/" class="game-btn cpool">Combo Pool</a>
+      <a href="/juegos/flappy/" class="game-btn flappy"></a>
+      <a href="/juegos/combopool/" class="game-btn cpool"></a>
     </div>
   </div>
 </div>
