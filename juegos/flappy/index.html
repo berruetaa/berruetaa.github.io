@@ -1,260 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poe-py Bird</title>
+    <title>Flappy Bird</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #87CEEB;
-            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
         canvas {
-            border: 2px solid #000;
+            display: block;
+            background-color: #70c5ce;
         }
     </style>
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
-
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-
         canvas.width = 320;
         canvas.height = 480;
 
         const bird = {
             x: 50,
             y: canvas.height / 2,
-            radius: 20,
+            width: 30,
+            height: 30,
+            gravity: 0.6,
+            lift: -15,
             velocity: 0,
-            gravity: 0.25,
-            jumpStrength: -5
+            draw() {
+                ctx.fillStyle = 'yellow';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            },
+            update() {
+                this.velocity += this.gravity;
+                this.y += this.velocity;
+                if (this.y + this.height > canvas.height) {
+                    this.y = canvas.height - this.height;
+                    this.velocity = 0;
+                } else if (this.y < 0) {
+                    this.y = 0;
+                    this.velocity = 0;
+                }
+            },
+            flap() {
+                this.velocity = this.lift;
+            }
         };
 
-        let pipes = [];
+        const pipes = [];
         const pipeWidth = 50;
-        const pipeGap = 180;
-        let score = 0;
-        let gameOver = false;
-        let gameStarted = false;
-        let lastTime = 0;
-        const targetFPS = 60;
-        const frameInterval = 1000 / targetFPS;
-
-        const birdImg = new Image();
-        birdImg.src = 'data:image/svg+xml,' + encodeURIComponent(`
-        <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#a)">
-        <mask id="b" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-        <path fill="#fff" d="M0 0h256v256H0z"/>
-        </mask>
-        <g mask="url(#b)">
-        <path fill="#000" d="M0 0h256v256H0z"/>
-        <path fill="#fff" d="M207 90c-2-2-5-3-8-3h-1c-9 0-16-7-16-17 0-3-1-6-3-8-3-3-6-4-9-4H77c-3 0-6 1-8 3-3 2-4 5-4 8 0 10-7 17-17 17h1c-3 0-6 1-8 3-3 2-4 5-4 8v30c0 3 1 6 3 8 3 2 6 3 9 3h1c9 0 16 7 16 17v30c0 4 5 6 7 3l17-21h80c3 0 6-1 8-3 3-2 4-5 4-8v1c0-10 7-17 16-17h1c3 0 6-1 8-3 3-2 4-5 4-8v-30c0-3-1-6-3-8zm-20 38c0 10-7 17-16 17H77c-9 0-17-7-17-17V98c0-9 8-16 17-16h93c9 0 17 7 17 16v30z"/>
-        <path fill="#fff" d="M98 96c-7 0-12 5-12 11v12c0 6 5 11 12 11s11-5 11-11v-12c0-6-5-11-11-11zm52 0c-7 0-12 5-12 11v12c0 6 5 11 12 11s11-5 11-11v-12c0-6-5-11-11-11z"/>
-        <path fill="url(#c)" d="M97 219l16-20h81c3 0 6-1 8-3 2-3 3-6 3-9 0-9 7-16 16-16h1c3 0 6-1 8-3 3-2 4-5 4-8v-30c0-3-1-6-3-8l-3-4v34c0 3-1 6-3 8-3 3-6 4-9 4h-1c-9 0-16 7-16 16 0 3-1 6-3 9-2 2-5 3-8 3h-81l-18 22c-1 2-1 4 1 6 2 2 5 2 7 0z"/>
-        <path fill="url(#d)" d="M78 198l18-22h80c3 0 6-1 8-3 3-2 4-5 4-8 0-9 7-17 16-17h1c3 0 6-1 8-3 3-2 4-5 4-8v-34l4 6c2 2 3 5 3 8v29c0 3-1 6-3 8-3 3-6 4-9 4h-1c-9 0-16 7-16 16 0 3-1 6-3 9-2 2-5 3-8 3h-81l-15 20c-2 3-7 3-9 0-1-2-1-5 1-7z"/>
-        </g>
-        </g>
-        <defs>
-        <clipPath id="a"><rect width="256" height="256" rx="85" fill="#fff"/></clipPath>
-        <linearGradient id="c" x1="272" y1="109" x2="90" y2="240" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#46A6F7"/><stop offset="1" stop-color="#8364FF"/>
-        </linearGradient>
-        <linearGradient id="d" x1="77" y1="227" x2="237" y2="111" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FF44D3"/><stop offset="1" stop-color="#CF4BFF"/>
-        </linearGradient>
-        </defs>
-        </svg>
-        `);
+        const pipeGap = 100;
+        const pipeSpeed = 2;
+        let frame = 0;
 
         function createPipe() {
-            const gapStart = Math.random() * (canvas.height - pipeGap - 100) + 50;
+            const gapY = Math.random() * (canvas.height - pipeGap - 20) + 10;
             pipes.push({
                 x: canvas.width,
-                top: gapStart,
-                bottom: gapStart + pipeGap
+                y: gapY
             });
-        }
-
-        function drawBird() {
-            ctx.save();
-            ctx.translate(bird.x, bird.y);
-            ctx.rotate(bird.velocity * 0.05);
-            ctx.drawImage(birdImg, -bird.radius, -bird.radius, bird.radius * 2, bird.radius * 2);
-            ctx.restore();
         }
 
         function drawPipes() {
+            ctx.fillStyle = 'green';
             pipes.forEach(pipe => {
-                // Top pipe
-                ctx.fillStyle = '#4CAF50';
-                ctx.fillRect(pipe.x, 0, pipeWidth, pipe.top);
-                ctx.fillStyle = '#45a049';
-                ctx.fillRect(pipe.x + pipeWidth - 10, 0, 10, pipe.top);
-                ctx.fillStyle = '#8bc34a';
-                ctx.fillRect(pipe.x, pipe.top - 20, pipeWidth, 20);
-
-                // Bottom pipe
-                ctx.fillStyle = '#4CAF50';
-                ctx.fillRect(pipe.x, pipe.bottom, pipeWidth, canvas.height - pipe.bottom);
-                ctx.fillStyle = '#45a049';
-                ctx.fillRect(pipe.x + pipeWidth - 10, pipe.bottom, 10, canvas.height - pipe.bottom);
-                ctx.fillStyle = '#8bc34a';
-                ctx.fillRect(pipe.x, pipe.bottom, pipeWidth, 20);
+                ctx.fillRect(pipe.x, 0, pipeWidth, pipe.y);
+                ctx.fillRect(pipe.x, pipe.y + pipeGap, pipeWidth, canvas.height - (pipe.y + pipeGap));
             });
         }
 
-        function drawScore() {
-            ctx.fillStyle = '#000';
-            ctx.font = '24px Arial';
-            ctx.fillText(`Score: ${score}`, 10, 30);
-        }
-
-        function drawBackground() {
-            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            gradient.addColorStop(0, '#87CEEB');
-            gradient.addColorStop(1, '#E0F7FA');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Draw clouds
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.beginPath();
-            ctx.arc(50, 50, 25, 0, Math.PI * 2);
-            ctx.arc(80, 60, 20, 0, Math.PI * 2);
-            ctx.arc(110, 50, 25, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(250, 80, 25, 0, Math.PI * 2);
-            ctx.arc(280, 90, 20, 0, Math.PI * 2);
-            ctx.arc(310, 80, 25, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        function update(deltaTime) {
-            if (!gameStarted || gameOver) return;
-
-            bird.velocity += bird.gravity * (deltaTime / 16.67);
-            bird.y += bird.velocity * (deltaTime / 16.67);
-
-            if (bird.y + bird.radius > canvas.height) {
-                gameOver = true;
-            }
-
+        function updatePipes() {
             pipes.forEach(pipe => {
-                pipe.x -= 1.5 * (deltaTime / 16.67);
+                pipe.x -= pipeSpeed;
+            });
+            if (pipes[0] && pipes[0].x < -pipeWidth) {
+                pipes.shift();
+            }
+        }
 
-                if (pipe.x + pipeWidth < bird.x - bird.radius && !pipe.passed) {
-                    score++;
-                    pipe.passed = true;
-                }
-
-                if (
-                    bird.x + bird.radius > pipe.x &&
-                    bird.x - bird.radius < pipe.x + pipeWidth &&
-                    (bird.y - bird.radius < pipe.top || bird.y + bird.radius > pipe.bottom)
-                ) {
-                    gameOver = true;
+        function detectCollision() {
+            pipes.forEach(pipe => {
+                if (bird.x < pipe.x + pipeWidth && bird.x + bird.width > pipe.x) {
+                    if (bird.y < pipe.y || bird.y + bird.height > pipe.y + pipeGap) {
+                        alert('Game Over!');
+                        document.location.reload();
+                    }
                 }
             });
-
-            pipes = pipes.filter(pipe => pipe.x + pipeWidth > 0);
-
-            if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
-                createPipe();
-            }
         }
 
-        function drawTitleScreen() {
-            drawBackground();
-
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#FFF';
-            ctx.font = 'bold 36px Arial';
-            ctx.fillText('Poe-py Bird', canvas.width / 2 - 90, canvas.height / 2 - 100);
-
-            ctx.font = '20px Arial';
-            ctx.fillText('Tap to flap', canvas.width / 2 - 50, canvas.height / 2 - 30);
-            ctx.fillText('Avoid pipes', canvas.width / 2 - 55, canvas.height / 2 + 10);
-            ctx.fillText('Score points', canvas.width / 2 - 60, canvas.height / 2 + 50);
-
-            ctx.font = '24px Arial';
-            ctx.fillText('Tap to start', canvas.width / 2 - 60, canvas.height / 2 + 120);
-        }
-
-        function draw() {
-            drawBackground();
-
-            if (!gameStarted) {
-                drawTitleScreen();
-                return;
-            }
-
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            bird.update();
+            bird.draw();
             drawPipes();
-            drawBird();
-            drawScore();
+            updatePipes();
+            detectCollision();
 
-            if (gameOver) {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#FFF';
-                ctx.font = '30px Arial';
-                ctx.fillText('Game Over', canvas.width / 2 - 70, canvas.height / 2);
-                ctx.fillText(`Score: ${score}`, canvas.width / 2 - 50, canvas.height / 2 + 40);
-                ctx.font = '20px Arial';
-                ctx.fillText('Tap to restart', canvas.width / 2 - 60, canvas.height / 2 + 80);
-            }
-        }
-
-        function gameLoop(currentTime) {
-            const deltaTime = currentTime - lastTime;
-
-            if (deltaTime >= frameInterval) {
-                update(deltaTime);
-                draw();
-                lastTime = currentTime - (deltaTime % frameInterval);
+            frame++;
+            if (frame % 90 === 0) {
+                createPipe();
             }
 
             requestAnimationFrame(gameLoop);
         }
 
-        function jump() {
-            if (!gameStarted) {
-                gameStarted = true;
-            } else if (gameOver) {
-                resetGame();
-            } else {
-                bird.velocity = bird.jumpStrength;
-            }
-        }
-
-        function resetGame() {
-            bird.y = canvas.height / 2;
-            bird.velocity = 0;
-            pipes = [];
-            score = 0;
-            gameOver = false;
-        }
-
-        canvas.addEventListener('click', jump);
-        canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            jump();
+        canvas.addEventListener('click', () => {
+            bird.flap();
         });
 
-        requestAnimationFrame(gameLoop);
+        gameLoop();
     </script>
 </body>
 </html>
