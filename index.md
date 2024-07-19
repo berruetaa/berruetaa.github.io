@@ -52,39 +52,18 @@ title1: "Sebastián Berrueta"
     font-size: 14px; /* Tamaño del texto */
     overflow: hidden; /* Evita el desbordamiento del texto */
     white-space: nowrap; /* Evita el salto de línea en el texto */
+    position: relative; /* Posición relativa para los elementos internos */
+    transition: all 0.3s ease; /* Transición suave para la expansión */
   }
 
   .game-btn {
-    display: flex;
-    align-items: center; /* Centra el texto verticalmente */
-    justify-content: center; /* Centra el texto horizontalmente */
-    height: 40px; /* Altura fija para todos los botones */
-    padding: 0 15px; /* Padding horizontal */
-    border: 2px solid transparent; /* Borde blanco */
-    border-radius: 5px; /* Bordes redondeados */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: rgba(0, 0, 0, 0); /* Color del texto */
-    font-size: 14px; /* Tamaño del texto */
-    overflow: hidden; /* Evita el desbordamiento del texto */
-    white-space: nowrap; /* Evita el salto de línea en el texto */
-    position: relative; /* Posición relativa para el overlay */
+    position: relative;
+    overflow: hidden;
   }
 
   .game-btn span {
     position: relative; /* Posición relativa para el texto */
     z-index: 2; /* Asegura que el texto esté por encima del overlay */
-  }
-
-  .social-btn.twitter {
-    background-color: #1da1f2; /* Color específico para el botón de Twitter */
-  }
-
-  .social-btn.instagram {
-    background-color: #c13584; /* Color específico para el botón de Instagram */
-  }
-
-  .useful-btn.main-btn {
-    background-color: #28a745; /* Color específico para los botones principales */
   }
 
   .game-btn.flappy {
@@ -98,28 +77,30 @@ title1: "Sebastián Berrueta"
     image-rendering: pixelated; /* Mantiene el aspecto pixelado de la imagen */
   }
 
-  .game-description {
-    display: none;
+  .game-btn .game-description {
+    display: block;
     position: absolute;
-    top: 100%;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
   }
 
-  .game-item:hover .game-description {
-    display: block;
+  .game-btn:hover .game-description {
     opacity: 1;
     visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .game-btn:hover {
+    height: 80px; /* Altura del botón cuando está expandido */
   }
 
   .overlay {
@@ -163,16 +144,16 @@ title1: "Sebastián Berrueta"
 
   <div class="custom-container">
     <h2>Juegos</h2>
-    <div class="game-list">
-      <div class="game-item">
-        <a href="#" class="game-btn flappy">Smashy Pipe</a>
+    <div class="useful-links">
+      <div class="game-btn flappy">
+        <span>Smashy Pipe</span>
         <div class="game-description">
           <h3>Smashy Pipe</h3>
           <p>Un juego donde tienes que ayudar a un tubo a evitar obstáculos. ¡Diviértete!</p>
         </div>
       </div>
-      <div class="game-item">
-        <a href="#" class="game-btn cpool">Combo Pool</a>
+      <div class="game-btn cpool">
+        <span>Combo Pool</span>
         <div class="game-description">
           <h3>Combo Pool</h3>
           <p>Un emocionante juego de billar con combos y desafíos únicos.</p>
@@ -186,7 +167,7 @@ title1: "Sebastián Berrueta"
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var gameItems = document.querySelectorAll('.game-item');
+    var gameItems = document.querySelectorAll('.game-btn');
     var overlay = document.getElementById('overlay');
     var body = document.body;
 
