@@ -13,7 +13,7 @@ title: "Sebastián Berrueta"
 
   .custom-container {
     background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde negro con 50% de opacidad */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde blanco con 50% de opacidad */
     border-radius: 10px;
     padding: 20px;
     max-width: 400px; /* Ancho máximo del recuadro */
@@ -35,17 +35,21 @@ title: "Sebastián Berrueta"
   }
 
   .social-btn, .useful-btn {
-    flex: 1; /* Hace que los botones ocupen el mismo ancho */
-    text-align: center; /* Centra el texto dentro del botón */
-    padding: 10px 15px; /* Ajusta el padding del botón */
-    border: 1px solid transparent; /* Asegura que el botón tenga borde pero no sea visible */
-    border-radius: 5px; /* Bordes redondeados para los botones */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: #fff; /* Color del texto del botón */
-    background-color: #007bff; /* Color de fondo del botón, puedes ajustar según el diseño */
-    height: 40px;
-    weight: 100px;
-  }
+  display: flex; /* Usa flexbox para centrar el texto */
+  align-items: center; /* Centra el texto verticalmente */
+  justify-content: center; /* Centra el texto horizontalmente */
+  height: 40px; /* Altura fija para todos los botones */
+  padding: 0 15px; /* Ajusta el padding horizontal */
+  border: 1px solid transparent; /* Asegura que el botón tenga borde pero no sea visible */
+  border-radius: 5px; /* Bordes redondeados para los botones */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: #fff; /* Color del texto del botón */
+  background-color: #007bff; /* Color de fondo del botón */
+  font-size: 14px; /* Tamaño del texto */
+  overflow: hidden; /* Evita el desbordamiento del texto */
+  white-space: nowrap; /* Evita el salto de línea en el texto */
+}
+
 
   .social-btn.twitter {
     background-color: #1da1f2; /* Color específico para el botón de Twitter */
