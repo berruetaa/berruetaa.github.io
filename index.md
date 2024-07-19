@@ -88,9 +88,7 @@ title1: "Sebastián Berrueta"
       <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Ir a Herramientas</a>
     </div>
   </div>
-</div>
 
-<div class="container-wrapper">
   <div class="custom-container">
     <h2>Juegos</h2>
     <div class="useful-links">
