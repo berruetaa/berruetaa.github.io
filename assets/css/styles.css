@@ -88,6 +88,10 @@ a:hover {
   transform: scale(1.05);
 }
 
+.flappy:hover {
+  transform: scale(2.0);
+}
+
 .main-btn {
   background-color: #27ae60;
   color: #fff;
