@@ -3,44 +3,50 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #000; /* Color de fondo negro para el efecto de estrellas */
-  color: #f0f0f0; /* Color de texto claro para contraste */
-  overflow: hidden; /* Para evitar scrollbars */
+  background-color: #000;
+  color: #f0f0f0;
+  /* overflow: hidden;  // Comentar o eliminar esta línea */
 }
 
 header {
-  background-color: #000000; 
-  color: #ecf0f1; /* Color claro para el texto */
+  background-color: #000000;
+  color: #ecf0f1;
   text-align: center;
   padding: 1em 0;
   animation: fadeInDown 1s ease-out;
+  z-index: 1;  /* Asegurar que el encabezado esté por encima de las estrellas */
+  position: relative;  /* Para que z-index tenga efecto */
 }
 
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #ecf0f1; /* Blanco claro */
+  color: #ecf0f1;
 }
 
 main {
   padding: 2em;
   text-align: center;
   animation: fadeIn 1.5s ease-in;
+  z-index: 1;  /* Asegurar que el contenido principal esté por encima de las estrellas */
+  position: relative;  /* Para que z-index tenga efecto */
 }
 
 footer {
-  background-color: #000000; 
-  color: #ecf0f1; /* Blanco claro */
+  background-color: #000000;
+  color: #ecf0f1;
   text-align: center;
   padding: 1em 0;
   position: fixed;
   width: 100%;
   bottom: 0;
   animation: fadeInDown 1s ease-out;
+  z-index: 1;  /* Asegurar que el pie de página esté por encima de las estrellas */
+  position: relative;  /* Para que z-index tenga efecto */
 }
 
 a {
-  color: #3498db; /* Azul brillante */
+  color: #3498db;
   text-decoration: none;
 }
 
@@ -63,7 +69,7 @@ a:hover {
 }
 
 .twitter {
-  background-color: #1e272e; /* Azul oscuro */
+  background-color: #1e272e;
   color: #fff;
 }
 
@@ -73,7 +79,7 @@ a:hover {
 }
 
 .instagram {
-  background-color: #641b29; /* Rojo oscuro */
+  background-color: #641b29;
   color: #fff;
 }
 
@@ -83,7 +89,7 @@ a:hover {
 }
 
 .main-btn {
-  background-color: #27ae60; /* Verde esmeralda */
+  background-color: #27ae60;
   color: #fff;
 }
 
