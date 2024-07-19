@@ -50,7 +50,6 @@ title1: "Sebastián Berrueta"
   border-radius: 5px; /* Bordes redondeados para los botones */
   text-decoration: none; /* Elimina el subrayado del enlace */
   color: #fff; /* Color del texto del botón */
-  background-color: #007bff; /* Color de fondo del botón */
   font-size: 14px; /* Tamaño del texto */
   overflow: hidden; /* Evita el desbordamiento del texto */
   white-space: nowrap; /* Evita el salto de línea en el texto */
