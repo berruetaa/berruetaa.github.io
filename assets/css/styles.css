@@ -3,14 +3,14 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #f0f0f0;
-  overflow: hidden; /* Asegúrate de que no haya scrollbars */
+  background-color: #000; /* Color de fondo negro para el efecto de estrellas */
+  color: #f0f0f0; /* Color de texto claro para contraste */
+  overflow: hidden; /* Para evitar scrollbars */
 }
 
 header {
-  background-color: #2c3e50;
-  color: #ecf0f1;
+  background-color: #2c3e50; /* Azul oscuro */
+  color: #ecf0f1; /* Color claro para el texto */
   text-align: center;
   padding: 1em 0;
   animation: fadeInDown 1s ease-out;
@@ -19,7 +19,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #ecf0f1;
+  color: #ecf0f1; /* Blanco claro */
 }
 
 main {
@@ -29,8 +29,8 @@ main {
 }
 
 footer {
-  background-color: #2c3e50;
-  color: #ecf0f1;
+  background-color: #2c3e50; /* Azul oscuro */
+  color: #ecf0f1; /* Blanco claro */
   text-align: center;
   padding: 1em 0;
   position: fixed;
@@ -40,7 +40,7 @@ footer {
 }
 
 a {
-  color: #3498db;
+  color: #3498db; /* Azul brillante */
   text-decoration: none;
 }
 
@@ -63,7 +63,7 @@ a:hover {
 }
 
 .twitter {
-  background-color: #1e272e;
+  background-color: #1e272e; /* Azul oscuro */
   color: #fff;
 }
 
@@ -73,7 +73,7 @@ a:hover {
 }
 
 .instagram {
-  background-color: #641b29;
+  background-color: #641b29; /* Rojo oscuro */
   color: #fff;
 }
 
@@ -83,7 +83,7 @@ a:hover {
 }
 
 .main-btn {
-  background-color: #27ae60;
+  background-color: #27ae60; /* Verde esmeralda */
   color: #fff;
 }
 
@@ -107,71 +107,30 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes falling {
-  from {
-    transform: translateY(-100px);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
-
-@keyframes trail {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-}
-
-@keyframes twinkling {
-  0%, 20%, 50%, 80%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0.5;
-  }
-}
-
-#stars, #twinkling {
+#stars {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-#stars {
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
   z-index: 0;
 }
 
-#twinkling {
-  z-index: 1;
-  background: transparent;
-}
-
-.star {
+.meteor {
   position: absolute;
-  background-color: #ecf0f1;
-  border-radius: 50%;
   width: 2px;
-  height: 2px;
-  opacity: 0.7;
-  animation: twinkling 2s infinite ease-in-out;
+  height: 100px;
+  background: linear-gradient(45deg, white, rgba(255, 255, 255, 0));
+  opacity: 0;
+  animation: meteor 3s linear infinite;
 }
 
-.trail {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  width: 4px;
-  height: 4px;
-  opacity: 0;
+@keyframes meteor {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(800px, 600px);
+    opacity: 0;
+  }
 }
