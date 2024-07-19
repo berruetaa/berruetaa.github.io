@@ -89,9 +89,11 @@ title1: "Sebastián Berrueta"
   </div>
 </div>
 
-<div class="custom-container">
+<div class="container-wrapper">
+  <div class="custom-container">
     <h2>Juegos</h2>
     <div class="useful-links">
       <a href="/juegos/flappy/" class="useful-btn main-btn">Flappy Bird</a>
     </div>
   </div>
+</div>
