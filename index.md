@@ -14,6 +14,7 @@ title1: "Sebastián Berrueta"
 
   .custom-container {
     display: inline-flex;
+    margin-top: 20px
     background-color: transparent; /* Fondo transparente */
     border: 2px solid rgba(255, 255, 255, 0.5); /* Borde blanco con 50% de opacidad */
     border-radius: 10px;
