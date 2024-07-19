@@ -1,1 +1,30 @@
-.
+# Configuración del sitio
+title: Berrueta
+description: 
+url: "https://berrueta.xyz"
+baseurl: "" # Por lo general, se deja vacío para sitios en la raíz del dominio
+
+# Configuración de los enlaces de navegación
+nav_links:
+  - title: Inicio
+    url: /
+  - title: Acerca de
+    url: /acerca/
+  - title: Contacto
+    url: /contacto/
+
+# Configuración del autor
+author:
+  name: Sebastian Berrueta
+  email: contacto@berrueta.xyz
+
+# Configuración de la fecha
+timezone: "America/Mexico_City"
+
+# Archivos y carpetas a excluir
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - juegos/papas
