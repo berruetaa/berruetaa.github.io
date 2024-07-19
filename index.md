@@ -105,9 +105,10 @@ title1: "Sebastián Berrueta"
   }
 
   .game-btn-cpool {
-    background: url('/assets/images/combopool_v4.p8.png') no-repeat center center; /* Ruta a la imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el botón */
-  }
+    background: url('/assets/images/combopool.png') no-repeat center center;
+    background-size: contain; /* Ajusta la imagen para que se ajuste dentro del botón */
+    image-rendering: pixelated; /* Mantiene el aspecto pixelado de la imagen */
+}
 </style>
 
 # Página principal
@@ -132,8 +133,8 @@ title1: "Sebastián Berrueta"
   <div class="custom-container">
     <h2>Juegos</h2>
     <div class="useful-links">
-      <a href="/juegos/flappy/" class="game-btn flappy"></a>
-      <a href="/juegos/combopool/" class="game-btn cpool"></a>
+      <a href="/juegos/flappy/" class="game-btn flappy">Smashy Pipe</a>
+      <a href="/juegos/combopool/" class="game-btn cpool">Combo Pool</a>
     </div>
   </div>
 </div>
