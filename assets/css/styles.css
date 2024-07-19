@@ -36,7 +36,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInDown 1s ease-out;
 }
 
 a {
@@ -126,11 +126,11 @@ a:hover {
 
 @keyframes meteor {
   0% {
-    transform: translate(-100px, -100px) rotate(-45deg);
+    transform: translate(0, 0) rotate(-45deg);
     opacity: 1;
   }
   100% {
-    transform: translate(900px, 900px) rotate(-45deg);
+    transform: translate(100vw, 100vh) rotate(-45deg);
     opacity: 0;
   }
 }
