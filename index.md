@@ -40,7 +40,7 @@ title1: "Sebastián Berrueta"
 }
 
 
-  .social-btn, .useful-btn, .game-btn{
+  .social-btn, .useful-btn,{
   display: flex;
   align-items: center; /* Centra el texto verticalmente */
   justify-content: center; /* Centra el texto horizontalmente */
@@ -55,6 +55,37 @@ title1: "Sebastián Berrueta"
   white-space: nowrap; /* Evita el salto de línea en el texto */
 }
 
+.game-btn {
+  display: flex;
+  align-items: center; /* Vertically center text */
+  justify-content: center; /* Horizontally center text */
+  height: 40px; /* Fixed height */
+  padding: 0 15px; /* Horizontal padding */
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline from link */
+  color: #fff; /* Text color */
+  font-size: 14px; /* Font size */
+  overflow: hidden; /* Prevent overflow */
+  white-space: nowrap; /* Prevent text wrap */
+  position: relative; /* Position relative for pseudo-element */
+}
+
+.game-btn:before {
+    content: ""; /* Required to display pseudo-element */
+    position: absolute; /* Position absolutely within the button */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 1; /* Place overlay behind text */
+}
+
+.game-btn span {
+    position: relative; /* Position relative to place it above the overlay */
+    z-index: 2; /* Ensure text is above overlay */
+}
 
   .social-btn.twitter {
     background-color: #1da1f2; /* Color específico para el botón de Twitter */
@@ -99,7 +130,7 @@ title1: "Sebastián Berrueta"
   </div>
 
   <div class="custom-container">
-    <h2>"Juegos    "</h2>
+    <h2>Juegos</h2>
     <div class="useful-links">
       <a href="/juegos/flappy/" class="game-btn flappy"></a>
       <a href="/juegos/combopool/" class="game-btn cpool"></a>
