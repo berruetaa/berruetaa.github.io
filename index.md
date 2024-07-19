@@ -89,7 +89,7 @@ title1: "Sebastián Berrueta"
 
   .game-btn.flappy {
     background: url('/assets/images/ELReoK.png') no-repeat center center; /* Ruta a la imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el botón */
+    background-size: contain; /* Asegura que la imagen cubra todo el botón */
   }
 
   .game-btn.cpool {
@@ -97,6 +97,11 @@ title1: "Sebastián Berrueta"
     background-size: contain; /* Ajusta la imagen para que se ajuste dentro del botón */
     image-rendering: pixelated; /* Mantiene el aspecto pixelado de la imagen */
 }
+
+  .game-btn.papas {
+    background: url('/assets/images/papas.jpg') no-repeat center center;
+    background-size: contain; /* Ajusta la imagen para que se ajuste dentro del botón */
+}    
 </style>
 
 # Página principal
@@ -123,6 +128,7 @@ title1: "Sebastián Berrueta"
     <div class="useful-links">
       <a href="/juegos/flappy/" class="game-btn flappy">Smashy Pipe</a>
       <a href="/juegos/combopool/" class="game-btn cpool">Combo Pool</a>
+      <a href="/juegos/papas/" class="game-btn papas">Los juegos de Papa's</a>
     </div>
   </div>
 </div>
