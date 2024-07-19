@@ -1,6 +1,7 @@
 ---
 layout: default
-title: "Sebastián Berrueta"
+title: "Berrueta - Página Principal"
+title1: "Sebastián Berrueta"
 ---
 
 <style>
