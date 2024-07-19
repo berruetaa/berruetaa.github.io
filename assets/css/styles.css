@@ -1,48 +1,64 @@
 body {
   font-family: 'Kode Mono', monospace;
-  line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #f0f0f0;
-  /* overflow: hidden;  // Comentar o eliminar esta línea */
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+#status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #000000;
+  z-index: 9999;
+}
+
+#stars {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  background-color: black;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+#content-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-bottom: 60px; /* Ajuste según la altura de su footer */
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0);
-  color: #ecf0f1;
+  padding-top: 20px;
   text-align: center;
-  padding: 1em 0;
-  animation: fadeInDown 1s ease-out;
-  z-index: 1;  /* Asegurar que el encabezado esté por encima de las estrellas */
-  position: relative;  /* Para que z-index tenga efecto */
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  color: #ecf0f1;
+h1 {
+  font-size: 2em;
 }
 
 main {
-  padding: 2em;
-  text-align: center;
-  animation: fadeIn 1.5s ease-in;
-  z-index: 1;  /* Asegurar que el contenido principal esté por encima de las estrellas */
-  position: relative;  /* Para que z-index tenga efecto */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0);
-  color: #ecf0f1;
-  text-align: center;
-  padding: 1em 0;
-  position: fixed;
-  width: 100%;
+  position: absolute;
   bottom: 0;
-  animation: fadeInDown 1s ease-out;
-  z-index: 1;  /* Asegurar que el pie de página esté por encima de las estrellas */
-  /* position: relative;  // Comentar o eliminar esta línea */
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
 }
 
 a {
