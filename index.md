@@ -13,7 +13,7 @@ title: "Sebastián Berrueta"
 
   .custom-container {
     background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde negro con 50% de opacidad */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde negro con 50% de opacidad */
     border-radius: 10px;
     padding: 20px;
     max-width: 400px; /* Ancho máximo del recuadro */
@@ -27,28 +27,34 @@ title: "Sebastián Berrueta"
   }
 
   .social-links, .useful-links {
-    display: flex; /* Usa flexbox para los enlaces */
-    flex-direction: column; /* Los enlaces se apilan verticalmente */
-  }
-
-  .social-links a, .useful-links a {
-    margin-bottom: 10px; /* Espacio entre los enlaces */
-  }
-
-  .social-links a:last-child, .useful-links a:last-child {
-    margin-bottom: 0; /* Elimina el margen del último enlace */
-  }
-
-  /* Alineación horizontal para botones dentro de los recuadros */
-  .social-links, .useful-links {
-    display: flex; /* Usar flexbox para alinear los botones horizontalmente */
-    flex-wrap: wrap; /* Permitir el ajuste a la siguiente línea si es necesario */
+    display: flex; /* Usa flexbox para alinear los botones */
+    flex-wrap: wrap; /* Permite que los botones se ajusten a la siguiente línea si es necesario */
     gap: 10px; /* Espacio entre los botones */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
   }
 
-  .social-links a, .useful-links a {
+  .social-btn, .useful-btn {
     flex: 1; /* Hace que los botones ocupen el mismo ancho */
-    text-align: center; /* Centra el texto dentro de los botones */
+    text-align: center; /* Centra el texto dentro del botón */
+    padding: 10px 15px; /* Ajusta el padding del botón */
+    border: 1px solid transparent; /* Asegura que el botón tenga borde pero no sea visible */
+    border-radius: 5px; /* Bordes redondeados para los botones */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #fff; /* Color del texto del botón */
+    background-color: #007bff; /* Color de fondo del botón, puedes ajustar según el diseño */
+  }
+
+  .social-btn.twitter {
+    background-color: #1da1f2; /* Color específico para el botón de Twitter */
+  }
+
+  .social-btn.instagram {
+    background-color: #c13584; /* Color específico para el botón de Instagram */
+  }
+
+  .useful-btn.main-btn {
+    background-color: #28a745; /* Color específico para los botones principales */
   }
 </style>
 
@@ -58,16 +64,16 @@ title: "Sebastián Berrueta"
   <div class="custom-container">
     <h2>Redes Sociales</h2>
     <div class="social-links">
-      <a href="https://twitter.com/berruetx" class="btn twitter">Twitter</a>
-      <a href="https://instagram.com/berruetx" class="btn instagram">Instagram</a>
+      <a href="https://twitter.com/berruetx" class="social-btn twitter">Twitter</a>
+      <a href="https://instagram.com/berruetx" class="social-btn instagram">Instagram</a>
     </div>
   </div>
 
   <div class="custom-container">
     <h2>Links útiles</h2>
     <div class="useful-links">
-      <a href="https://liceo.berrueta.xyz" class="btn main-btn">Ir a Liceo</a>
-      <a href="https://tools.berrueta.xyz" class="btn main-btn">Ir a Herramientas</a>
+      <a href="https://liceo.berrueta.xyz" class="useful-btn main-btn">Ir a Liceo</a>
+      <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Ir a Herramientas</a>
     </div>
   </div>
 </div>
