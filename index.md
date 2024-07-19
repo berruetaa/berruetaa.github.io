@@ -7,7 +7,7 @@ title: "Sebastián Berrueta"
 
 ## Redes Sociales
 
-<div class="social-links" style="margin-bottom: 20px;">
+<div class="social-links" style="margin-bottom: 120px;">
   <a href="https://twitter.com/berruetx" class="btn twitter" style="margin-right: 10px;">Twitter</a>
   <a href="https://instagram.com/berruetx" class="btn instagram">Instagram</a>
 </div>
