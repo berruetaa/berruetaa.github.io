@@ -64,22 +64,10 @@ title1: "Sebastián Berrueta"
   border: 2px solid #fff; /* White border */
   border-radius: 5px; /* Rounded corners */
   text-decoration: none; /* Remove underline from link */
-  color: #fff; /* Text color */
+  color: rgba(0, 0, 0, 0); /* Text color */
   font-size: 14px; /* Font size */
   overflow: hidden; /* Prevent overflow */
   white-space: nowrap; /* Prevent text wrap */
-  position: relative; /* Position relative for pseudo-element */
-}
-
-.game-btn:before {
-    content: ""; /* Required to display pseudo-element */
-    position: absolute; /* Position absolutely within the button */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
-    z-index: 1; /* Place overlay behind text */
 }
 
 .game-btn span {
