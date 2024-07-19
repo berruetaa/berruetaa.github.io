@@ -104,7 +104,7 @@ title1: "Sebastián Berrueta"
     background-size: cover; /* Asegura que la imagen cubra todo el botón */
   }
 
-  .game-btn-cpool {
+  .game-btn.cpool {
     background: url('/assets/images/combopool.png') no-repeat center center;
     background-size: contain; /* Ajusta la imagen para que se ajuste dentro del botón */
     image-rendering: pixelated; /* Mantiene el aspecto pixelado de la imagen */
