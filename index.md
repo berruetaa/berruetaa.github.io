@@ -27,15 +27,18 @@ title: "Sebastián Berrueta"
   }
 
   .social-links, .useful-links {
-    display: flex; /* Usa flexbox para alinear los botones */
-    flex-wrap: wrap; /* Permite que los botones se ajusten a la siguiente línea si es necesario */
-    gap: 10px; /* Espacio entre los botones */
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 0; /* Elimina el padding por defecto */
-  }
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones se envuelvan si no caben en una fila */
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center; /* Centra los botones verticalmente en el contenedor si hay más alto */
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+}
+
 
   .social-btn, .useful-btn {
-  display: flex; /* Usa flexbox para centrar el texto */
+  display: flex;
   align-items: center; /* Centra el texto verticalmente */
   justify-content: center; /* Centra el texto horizontalmente */
   height: 40px; /* Altura fija para todos los botones */
