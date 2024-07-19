@@ -19,7 +19,6 @@ title: "Sebastián Berrueta"
     max-width: 400px; /* Ancho máximo del recuadro */
     width: 100%; /* Ancho completo dentro del contenedor */
     box-sizing: border-box; /* Incluye padding y border en el ancho total */
-    height: 40px;
   }
 
   .custom-container h2 {
@@ -44,6 +43,7 @@ title: "Sebastián Berrueta"
     text-decoration: none; /* Elimina el subrayado del enlace */
     color: #fff; /* Color del texto del botón */
     background-color: #007bff; /* Color de fondo del botón, puedes ajustar según el diseño */
+    height: 40px;
   }
 
   .social-btn.twitter {
