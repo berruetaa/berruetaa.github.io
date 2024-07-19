@@ -78,48 +78,32 @@ title1: "Sebastián Berrueta"
   }
 
   .game-btn .game-description {
-    display: block;
+    display: none; /* Oculto por defecto */
     position: absolute;
-    bottom: 0;
+    bottom: 100%; /* Posicionado encima del botón */
     left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #000;
+    transform: translateX(-50%); /* Centra horizontalmente */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con opacidad */
+    color: #fff; /* Texto blanco */
     padding: 10px;
-    width: 100%;
+    width: 200px; /* Ancho fijo para la descripción */
     box-sizing: border-box;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
+    border-radius: 5px; /* Bordes redondeados */
+    z-index: 1; /* Asegura que el texto esté encima del botón */
+    transition: opacity 0.3s ease; /* Transición suave para la visibilidad */
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* Inicialmente oculto */
   }
 
   .game-btn:hover .game-description {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    display: block; /* Muestra la descripción */
+    opacity: 1; /* Hacer visible la descripción */
+    visibility: visible; /* Asegura que la descripción sea visible */
+    transform: translateX(-50%) translateY(-10px); /* Desplaza hacia arriba al expandir */
   }
 
   .game-btn:hover {
     height: 80px; /* Altura del botón cuando está expandido */
-  }
-
-  .overlay {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 9; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
-  }
-
-  .show-overlay .overlay {
-    display: block; /* Show overlay */
-  }
-
-  body.no-scroll {
-    overflow: hidden; /* Disable scrolling */
   }
 </style>
 
@@ -162,33 +146,3 @@ title1: "Sebastián Berrueta"
     </div>
   </div>
 </div>
-
-<div id="overlay" class="overlay"></div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var gameItems = document.querySelectorAll('.game-btn');
-    var overlay = document.getElementById('overlay');
-    var body = document.body;
-
-    gameItems.forEach(function(item) {
-      item.addEventListener('mouseenter', function() {
-        overlay.classList.add('show-overlay');
-        body.classList.add('no-scroll');
-      });
-
-      item.addEventListener('mouseleave', function() {
-        overlay.classList.remove('show-overlay');
-        body.classList.remove('no-scroll');
-      });
-    });
-
-    // Close the overlay when clicking outside of the game description
-    window.onclick = function(event) {
-      if (event.target == overlay) {
-        overlay.classList.remove('show-overlay');
-        body.classList.remove('no-scroll');
-      }
-    };
-  });
-</script>
