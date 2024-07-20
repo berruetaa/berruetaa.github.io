@@ -32,9 +32,9 @@ title: Juego Flash
 </head>
 <body>
     <div id="flash-container">
-        <object type="application/x-shockwave-flash" data="{{ "/assets/flash/mygame.swf" | relative_url }}">
+        <object type="application/x-shockwave-flash" data="{{ "/assets/flash/game.swf" | relative_url }}">
             <!-- Mensaje alternativo para navegadores que no soportan Flash -->
-            <param name="movie" value="{{ "/assets/flash/mygame.swf" | relative_url }}">
+            <param name="movie" value="{{ "/assets/flash/game.swf" | relative_url }}">
         </object>
     </div>
     <script>
@@ -46,7 +46,7 @@ title: Juego Flash
             const player = ruffle.createPlayer();
             container.innerHTML = ""; // Limpia el contenido existente en el contenedor
             container.appendChild(player);
-            player.load("{{ "/assets/flash/mygame.swf" | relative_url }}");
+            player.load("{{ "/assets/flash/game.swf" | relative_url }}");
         });
     </script>
 </body>
