@@ -164,6 +164,7 @@ a:hover {
 .custom-container h2 {
   margin-top: 0; /* Elimina el margen superior de los títulos */
   margin-bottom: 10px; /* Espacio debajo del título */
+  text-align: center;
 }
 
 .social-links, .useful-links {
