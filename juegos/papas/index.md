@@ -35,17 +35,57 @@ title: Papa's taco mia
 </head>
 <body>
     <div id="flash-container">
-        <object type="application/x-shockwave-flash" data="{{ "/assets/flash/game.swf" | relative_url }}">
+        <object id="flash-object" type="application/x-shockwave-flash" data="{{ "/assets/flash/game.swf" | relative_url }}">
             <!-- Mensaje alternativo para navegadores que no soportan Flash -->
             <param name="movie" value="{{ "/assets/flash/game.swf" | relative_url }}">
+            <param name="allowFullScreen" value="true">
         </object>
     </div>
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
+        window.RufflePlayer.config = {
+            // Options affecting the whole page
+            "publicPath": undefined,
+            "polyfills": true,
+
+            // Options affecting files only
+            "allowScriptAccess": false, 
+            "autoplay": "auto",
+            "unmuteOverlay": "visible",
+            "backgroundColor": null,
+            "wmode": "window",
+            "letterbox": "fullscreen",
+            "warnOnUnsupportedContent": true,
+            "contextMenu": "on",
+            "showSwfDownload": false,
+            "upgradeToHttps": window.location.protocol === "https:",
+            "maxExecutionDuration": 15,
+            "logLevel": "error",
+            "base": null,
+            "menu": true,
+            "salign": "",
+            "forceAlign": false,
+            "scale": "showAll",
+            "forceScale": false,
+            "frameRate": null,
+            "quality": "high",
+            "splashScreen": true,
+            "preferredRenderer": null,
+            "openUrlMode": "allow",
+            "allowNetworking": "all",
+            "favorFlash": true,
+            "socketProxy": [],
+            "fontSources": [],
+            "defaultFonts": {},
+            "credentialAllowList": [],
+            "playerRuntime": "flashPlayer",
+            "allowFullscreen": true // Cambiado a true
+        };
+
         window.addEventListener("DOMContentLoaded", function() {
             const ruffle = window.RufflePlayer.newest();
             const container = document.getElementById("flash-container");
-            const object = container.querySelector("object");
+            const object = document.getElementById("flash-object");
             const player = ruffle.createPlayer();
             container.innerHTML = ""; // Limpia el contenido existente en el contenedor
             container.appendChild(player);
