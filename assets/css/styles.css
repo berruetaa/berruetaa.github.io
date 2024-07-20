@@ -150,7 +150,7 @@ a:hover {
 }
 
 .custom-container {
-  width: 210px; /* Ancho fijo para todos los contenedores */
+  width: 300px; /* Ancho fijo para todos los contenedores */
   display: flex;
   flex-direction: column;
   background-color: transparent;
