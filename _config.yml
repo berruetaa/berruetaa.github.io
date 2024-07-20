@@ -19,7 +19,7 @@ author:
   email: contacto@berrueta.xyz
 
 # Configuración de la fecha
-timezone: "America/Mexico_City"
+timezone: "America/Montevideo"
 
 # Archivos y carpetas a excluir
 exclude:
@@ -27,4 +27,3 @@ exclude:
   - Gemfile.lock
   - README.md
   - node_modules
-  - juegos/papas
