@@ -150,8 +150,7 @@ a:hover {
 }
 
 .custom-container {
-  flex: 0 1 calc(33.333% - 20px);
-  min-width: 250px;
+  width: 210px; /* Ancho fijo para todos los contenedores */
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -159,6 +158,7 @@ a:hover {
   border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
+  margin-bottom: 20px; /* Espacio adicional entre filas si es necesario */
 }
 
 .custom-container h2 {
