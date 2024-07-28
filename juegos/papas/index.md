@@ -48,7 +48,7 @@ title1: "Todos los juegos de Papa's"
     display: flex;
     align-items: center; /* Centra los iconos verticalmente */
     justify-content: center; /* Centra los iconos horizontalmente */
-    flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 100px; /* Flex-grow, flex-shrink, flex-basis */
     max-width: 150px; /* Ancho máximo para cada elemento */
     aspect-ratio: 1 / 1;
     border-radius: 8px; /* Opcional: Bordes redondeados */
