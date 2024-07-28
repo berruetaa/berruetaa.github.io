@@ -1,61 +1,45 @@
 ---
-layout: none
-title: Papa's taco mia
+layout: default
+title: "Juegos de Papa's"
+title1: "Juegos de Papa's"
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden; /* Evita scrollbars */
-            background: #000; /* Fondo negro */
-        }
-        #flash-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        embed, object {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-</head>
-<body>
-    <div id="flash-container">
-        <object id="flash-object" type="application/x-shockwave-flash" data="{{ "/assets/flash/game.swf" | relative_url }}">
-            <!-- Mensaje alternativo para navegadores que no soportan Flash -->
-            <param name="movie" value="{{ "/assets/flash/game.swf" | relative_url }}">
-        </object>
+<div class="container-wrapper">
+  <div class="custom-container">
+    <h2>Juegos de Papa's</h2>
+    <div class="games-grid">
+      <div class="game-item">
+        <a href="{{ '/juegos/papas/scooperia' | relative_url }}">
+          <img src="{{ '/assets/flash/icon_300x300_papasscooperia.png' | relative_url }}" alt="Papa's Scooperia">
+          <p>Papa's Scooperia</p>
+        </a>
+      </div>
+      <!-- Añadir más juegos aquí siguiendo el mismo formato -->
+      <div class="game-item">
+        <a href="{{ '/juegos/papas/tacomia' | relative_url }}">
+          <img src="{{ '/assets/flash/icon_300x300_tacomia.png' | relative_url }}" alt="Papa's Taco Mia">
+          <p>Papa's Taco Mia</p>
+        </a>
+      </div>
     </div>
-    <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.addEventListener("DOMContentLoaded", function() {
-            const ruffle = window.RufflePlayer.newest();
-            const container = document.getElementById("flash-container");
-            const object = document.getElementById("flash-object");
-            const player = ruffle.createPlayer();
-            container.innerHTML = ""; // Limpia el contenido existente en el contenedor
-            container.appendChild(player);
-            player.load("{{ "/assets/flash/game.swf" | relative_url }}");
+  </div>
+</div>
 
-            // Opcional: iniciar pantalla completa automáticamente
-            if (player.requestFullscreen) {
-                player.requestFullscreen();
-            }
-        });
-    </script>
-</body>
-</html>
+<style>
+  .games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .game-item {
+    text-align: center;
+  }
+  .game-item img {
+    width: 150px;
+    height: 150px;
+  }
+  .game-item p {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+</style>
