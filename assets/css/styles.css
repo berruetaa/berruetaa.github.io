@@ -95,7 +95,9 @@ a:hover {
 }
 
 .custom-container {
-  width: 70%;
+  width: 70%; /* Ocupa el 70% del ancho disponible */
+  max-width: 600px; /* Ancho máximo permitido */
+  min-width: 300px; /* Ancho mínimo permitido */
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -103,7 +105,7 @@ a:hover {
   border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto; /* Centra el contenedor horizontalmente */
 }
 
 .custom-container h2 {
