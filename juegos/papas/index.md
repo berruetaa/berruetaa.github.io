@@ -16,6 +16,7 @@ title1: "Todos los juegos de Papa's"
         <a href="{{ '/juegos/papas/pastaria' | relative_url }}">
           <img src="{{ '/assets/flash/papaspastaria/papaspastaria_300x300.jpg' | relative_url }}" alt="Papa's Pastaria">
         </a>
+      </div>
       <div class="game-item">
         <a href="{{ '/juegos/papas/freezeria' | relative_url }}">
           <img src="{{ '/assets/flash/papasfreezeria/papasfreezeria_300x300.jpg' | relative_url }}" alt="Papa's Freezeria">
