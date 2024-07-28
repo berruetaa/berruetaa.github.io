@@ -11,14 +11,12 @@ title1: "Juegos de Papa's"
       <div class="game-item">
         <a href="{{ '/juegos/papas/scooperia' | relative_url }}">
           <img src="{{ '/assets/flash/papasscooperia/icon_300x300_papasscooperia.jpg' | relative_url }}" alt="Papa's Scooperia">
-          <p>Papa's Scooperia</p>
         </a>
       </div>
       <!-- Añadir más juegos aquí siguiendo el mismo formato -->
       <div class="game-item">
         <a href="{{ '/juegos/papas/tacomia' | relative_url }}">
           <img src="{{ '/assets/flash/papastacomia/papastacomia_300x300.jpg' | relative_url }}" alt="Papa's Taco Mia">
-          <p>Papa's Taco Mia</p>
         </a>
       </div>
     </div>
@@ -29,17 +27,25 @@ title1: "Juegos de Papa's"
   .games-grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Centra los elementos horizontalmente */
     gap: 20px;
   }
+
   .game-item {
-    text-align: center;
+    display: flex;
+    align-items: center; /* Centra los iconos verticalmente */
+    justify-content: center; /* Centra los iconos horizontalmente */
+    width: 150px; /* Ancho fijo para cada elemento */
+    height: 150px; /* Alto fijo para cada elemento */
+    border-radius: 8px; /* Opcional: Bordes redondeados */
+    background-color: #f9f9f9; /* Opcional: Color de fondo para cada ítem */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: Sombra para cada ítem */
   }
+
   .game-item img {
-    width: 150px;
-    height: 150px;
-  }
-  .game-item p {
-    margin-top: 10px;
-    font-size: 1.2em;
+    width: 100%; /* Ajusta el ancho de la imagen al tamaño del contenedor */
+    height: 100%; /* Ajusta la altura de la imagen al tamaño del contenedor */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+    border-radius: 8px; /* Opcional: Bordes redondeados para las imágenes */
   }
 </style>
