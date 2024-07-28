@@ -62,18 +62,4 @@ title1: "Todos los juegos de Papa's"
     object-fit: cover; /* Asegura que la imagen mantenga su proporción */
     border-radius: 8px; /* Opcional: Bordes redondeados para las imágenes */
   }
-
-  /* Media Queries para pantallas más pequeñas */
-  @media (max-width: 600px) {
-    .game-item {
-      flex: 1 1 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-      max-width: 100%;
-    }
-  }
-
-  @media (min-width: 600px) and (max-width: 900px) {
-    .game-item {
-      flex: 1 1 45%; /* Ocupa el 45% del ancho en pantallas medianas */
-    }
-  }
 </style>
