@@ -34,7 +34,8 @@ title1: "Todos los juegos de Papa's"
     display: flex;
     align-items: center; /* Centra los iconos verticalmente */
     justify-content: center; /* Centra los iconos horizontalmente */
-    width: 150px; /* Ancho fijo para cada elemento */
+    flex: 1 1 150px; /* Flex-grow, flex-shrink, flex-basis */
+    max-width: 150px; /* Ancho máximo para cada elemento */
     height: 150px; /* Alto fijo para cada elemento */
     border-radius: 8px; /* Opcional: Bordes redondeados */
     background-color: #f9f9f9; /* Opcional: Color de fondo para cada ítem */
@@ -46,5 +47,19 @@ title1: "Todos los juegos de Papa's"
     height: 100%; /* Ajusta la altura de la imagen al tamaño del contenedor */
     object-fit: cover; /* Asegura que la imagen mantenga su proporción */
     border-radius: 8px; /* Opcional: Bordes redondeados para las imágenes */
+  }
+
+  /* Media Queries para pantallas más pequeñas */
+  @media (max-width: 600px) {
+    .game-item {
+      flex: 1 1 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 900px) {
+    .game-item {
+      flex: 1 1 45%; /* Ocupa el 45% del ancho en pantallas medianas */
+    }
   }
 </style>
