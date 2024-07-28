@@ -95,7 +95,7 @@ a:hover {
 }
 
 .custom-container {
-  max-width: 70%;
+  max-width: 70vw;
   display: flex;
   flex-direction: column;
   background-color: transparent;
