@@ -28,6 +28,7 @@ title1: "Juegos de Papa's"
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centra los elementos horizontalmente */
+    overflow-y: auto;
     gap: 20px;
   }
 
