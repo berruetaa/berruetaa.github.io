@@ -2,7 +2,9 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto; /* Permite el scroll vertical */
+  overflow-x: hidden; /* Oculta el scroll horizontal innecesario */
+  scroll-behavior: smooth; /* Desplazamiento suave */
 }
 
 body {
