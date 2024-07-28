@@ -1,12 +1,11 @@
 ---
 layout: default
 title: "Juegos de Papa's"
-title1: "Juegos de Papa's"
+title1: "Todos los juegos de Papa's"
 ---
 
 <div class="container-wrapper">
   <div class="custom-container">
-    <h2>Juegos de Papa's</h2>
     <div class="games-grid">
       <div class="game-item">
         <a href="{{ '/juegos/papas/scooperia' | relative_url }}">
