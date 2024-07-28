@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const starField = document.getElementById('stars');
-    const numStars = 200;  // Número total de estrellas
+    const numStars = 500;  // Número total de estrellas
 
     function createStar() {
         const star = document.createElement('div');
