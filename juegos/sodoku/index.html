@@ -29,7 +29,96 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <!-- Sudoku Generator -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sudoku/1.0.0/sudoku.min.js"></script>
+    <script>
+        class Sudoku {
+            constructor() {
+                this.grid = Array.from({ length: 9 }, () => Array(9).fill(' '));
+            }
+
+            printSudoku() {
+                console.log(" -----------------------------")
+                for (let i = 0; i < this.grid.length; i++) {
+                    if (i != 0 && i % 3 == 0) {
+                        console.log(" -----------------------------")
+                    }
+                    let string = ""
+                    for (let j = 0; j < this.grid[i].length; j++) {
+                        if (j % 3 == 0) {
+                            string += "|"
+                        }
+                        string += " " + this.grid[i][j] + " "
+                    }
+                    console.log(string + "|")
+                }
+                console.log(" -----------------------------")
+            }
+
+            rowCheck(val, index) {
+                return this.grid[index].includes(val)
+            }
+
+            colCheck(val, index) {
+                for (let i = 0; i < 9; i++) {
+                    if (this.grid[i][index] == val) {
+                        return true
+                    }
+                }
+                return false
+            }
+
+            subgrid(val, row, col) {
+                for (let i = Math.floor(row / 3) * 3; i < (Math.floor(row / 3) * 3) + 3; i++) {
+                    for (let j = Math.floor(col / 3) * 3; j < (Math.floor(col / 3) * 3) + 3; j++) {
+                        if (this.grid[i][j] == val) {
+                            return true
+                        }
+                    }
+                }
+                return false
+            }
+
+            generateSudoku(dif) {
+                let num = "123456789"
+                for (let i = 0; num.length > 0 && i < 9; i++) {
+                    let index = Math.floor(Math.random() * num.length)
+                    let val = num.substring(index, index + 1)
+                    this.grid[0][i] = val
+                    num = num.replace(val, '')
+                }
+
+                this.solver()
+                this.removeValues(dif)
+            }
+
+            removeValues(dif) {
+                for (let i = 0; i < dif; i++) {
+                    let row = Math.floor(Math.random() * 9)
+                    let col = Math.floor(Math.random() * 9)
+                    this.grid[row][col] = ' '
+                }
+            }
+
+            solver() {
+                for (let i = 0; i < 9; i++) {
+                    for (let j = 0; j < 9; j++) {
+                        if (this.grid[i][j] == ' ') {
+                            for (let val = 1; val < 10; val++) {
+                                if (!(this.rowCheck(val, i) || this.colCheck(val, j) || this.subgrid(val, i, j))) {
+                                    this.grid[i][j] = val
+                                    if (this.solver()) {
+                                        return true
+                                    }
+                                    this.grid[i][j] = ' '
+                                }
+                            }
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="timer" id="timer">Time: 0s</div>
@@ -83,6 +172,7 @@
         let solvedBoard = [];
         let seconds = 0;
         const timerElement = document.getElementById('timer');
+        let timerInterval;
 
         function createSudokuTable(board) {
             table.innerHTML = '';
@@ -90,8 +180,8 @@
                 const row = document.createElement('tr');
                 for (let j = 0; j < 9; j++) {
                     const cell = document.createElement('td');
-                    if (board[i * 9 + j] !== '.') {
-                        cell.textContent = board[i * 9 + j];
+                    if (board[i][j] !== ' ') {
+                        cell.textContent = board[i][j];
                         cell.classList.add('fixed');
                     } else {
                         const input = document.createElement('input');
@@ -124,7 +214,9 @@
             const inputs = table.querySelectorAll('input');
             let completed = true;
             inputs.forEach((input, index) => {
-                if (input.value != solvedBoard[index]) {
+                const row = Math.floor(index / 9);
+                const col = index % 9;
+                if (input.value != solvedBoard[row][col]) {
                     completed = false;
                 }
             });
@@ -143,8 +235,12 @@
         }
 
         window.onload = function() {
-            const puzzle = sudoku.generate("easy");
-            solvedBoard = sudoku.solve(puzzle).split('');
+            const sudoku = new Sudoku();
+            sudoku.generateSudoku(50);
+            const puzzle = sudoku.grid.map(row => row.join(''));
+            const solved = sudoku.grid.map(row => row.slice());
+            sudoku.solver();
+            solvedBoard = sudoku.grid;
             createSudokuTable(puzzle);
             startTimer();
             loadScores();
