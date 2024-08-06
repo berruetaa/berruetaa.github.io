@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 24px;
+        }
+        .fixed {
+            background-color: lightgray;
+        }
+        .timer, .scoreboard {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- Sudoku Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sudoku/1.0.0/sudoku.min.js"></script>
+</head>
+<body>
+    <div class="timer" id="timer">Time: 0s</div>
+    <table id="sudoku">
+        <!-- Sudoku table will be generated here -->
+    </table>
+    <div class="scoreboard" id="scoreboard">
+        <h2>Scoreboard</h2>
+        <ul id="scores">
+            <!-- Scores will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            databaseURL: "YOUR_DATABASE_URL",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+
+        function saveScore(time) {
+            const name = prompt("Enter your name:");
+            if (name) {
+                database.ref('scores/').push({
+                    name: name,
+                    time: time
+                });
+            }
+        }
+
+        function loadScores() {
+            const scoresList = document.getElementById('scores');
+            scoresList.innerHTML = '';
+            database.ref('scores/').orderByChild('time').limitToFirst(10).on('value', (snapshot) => {
+                snapshot.forEach((data) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${data.val().name}: ${data.val().time}s`;
+                    scoresList.appendChild(li);
+                });
+            });
+        }
+
+        const table = document.getElementById('sudoku');
+        let solvedBoard = [];
+        let seconds = 0;
+        const timerElement = document.getElementById('timer');
+
+        function createSudokuTable(board) {
+            table.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 9; j++) {
+                    const cell = document.createElement('td');
+                    if (board[i * 9 + j] !== '.') {
+                        cell.textContent = board[i * 9 + j];
+                        cell.classList.add('fixed');
+                    } else {
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.maxLength = 1;
+                        input.style.width = '100%';
+                        input.style.height = '100%';
+                        input.style.border = 'none';
+                        input.style.textAlign = 'center';
+                        input.style.fontSize = '24px';
+                        input.addEventListener('input', validateInput);
+                        cell.appendChild(input);
+                    }
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+        }
+
+        function validateInput(event) {
+            const value = event.target.value;
+            if (isNaN(value) || value < 1 || value > 9) {
+                event.target.value = '';
+            } else {
+                checkCompletion();
+            }
+        }
+
+        function checkCompletion() {
+            const inputs = table.querySelectorAll('input');
+            let completed = true;
+            inputs.forEach((input, index) => {
+                if (input.value != solvedBoard[index]) {
+                    completed = false;
+                }
+            });
+            if (completed) {
+                clearInterval(timerInterval);
+                saveScore(seconds);
+                loadScores();
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                seconds++;
+                timerElement.textContent = `Time: ${seconds}s`;
+            }, 1000);
+        }
+
+        window.onload = function() {
+            const puzzle = sudoku.generate("easy");
+            solvedBoard = sudoku.solve(puzzle).split('');
+            createSudokuTable(puzzle);
+            startTimer();
+            loadScores();
+        }
+    </script>
+</body>
+</html>
