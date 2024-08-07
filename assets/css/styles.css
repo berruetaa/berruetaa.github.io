@@ -73,6 +73,10 @@ footer {
   width: 100%;
   text-align: center;
   padding: 5px 0;
+  user-select: none; /* Evita la selección del texto */
+  -webkit-user-select: none; /* Para Safari y versiones antiguas de Chrome */
+  -moz-user-select: none; /* Para Firefox */
+  -ms-user-select: none; /* Para Internet Explorer/Edge */
 }
 
 a {
