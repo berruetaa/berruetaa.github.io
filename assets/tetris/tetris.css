@@ -28,6 +28,10 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  user-select: none; /* Evita la selección del texto */
+  -webkit-user-select: none; /* Para Safari y versiones antiguas de Chrome */
+  -moz-user-select: none; /* Para Firefox */
+  -ms-user-select: none; /* Para Internet Explorer/Edge */
 }
 
 button:active {
