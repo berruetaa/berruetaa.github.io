@@ -9,7 +9,7 @@ html, body {
 
 body {
   font-family: 'Kode Mono', monospace;
-  background-color: black;
+  background-color: #101720;
   color: white;
   display: flex;
   flex-direction: column;
