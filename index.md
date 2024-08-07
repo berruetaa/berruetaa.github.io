@@ -31,7 +31,7 @@ title1: "Sebastián Berrueta"
       <a href="/juegos/flappy/" class="game-btn flappy">Smashy Pipe</a>
       <a href="/juegos/combopool/" class="game-btn cpool">Combo Pool</a>
       <a href="/juegos/papas/" class="game-btn papas">Los juegos de Papa's</a>
-      <a href="/juegos/tetris/" class="game-btn">Tetris</a>
+      <!--<a href="/juegos/tetris/" class="game-btn">Tetris</a>-->
     </div>
   </div>
 </div>
