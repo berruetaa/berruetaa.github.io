@@ -8,4 +8,10 @@ title: Tetris
 
 <div id="tetris-container">
   <canvas id="tetris" width="300" height="600"></canvas>
+  <div id="controls">
+    <button id="left">←</button>
+    <button id="right">→</button>
+    <button id="rotate">↻</button>
+    <button id="down">↓</button>
+  </div>
 </div>
