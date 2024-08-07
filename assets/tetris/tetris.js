@@ -19,6 +19,9 @@ const colors = ['cyan', 'yellow', 'green', 'red', 'purple', 'orange', 'blue'];
 
 let board = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
 let currentShape, currentX, currentY, currentColor;
+let score = 0;
+let animFrame = 0;
+let message = '';
 
 function drawBlock(x, y, color) {
   context.fillStyle = color;
@@ -42,6 +45,22 @@ function drawShape(shape, x, y, color) {
   });
 }
 
+function drawMessage() {
+  if (message) {
+    context.font = '30px Arial';
+    context.fillStyle = 'black';
+    context.textAlign = 'center';
+    context.fillText(message, canvas.width / 2, canvas.height / 2);
+  }
+}
+
+function drawScore() {
+  context.font = '20px Arial';
+  context.fillStyle = 'black';
+  context.textAlign = 'left';
+  context.fillText('Score: ' + score, 10, canvas.height - 10);
+}
+
 function collide(x, y, shape) {
   return shape.some((row, dy) => 
     row.some((value, dx) => 
@@ -63,14 +82,43 @@ function rotate(shape) {
 }
 
 function removeFullRows() {
-  board = board.filter(row => row.some(value => value === 0));
-  const missingRows = ROWS - board.length;
-  board = Array.from({ length: missingRows }, () => Array(COLS).fill(0)).concat(board);
+  let rowsToRemove = [];
+  board.forEach((row, y) => {
+    if (row.every(value => value !== 0)) {
+      rowsToRemove.push(y);
+    }
+  });
+
+  rowsToRemove.forEach(rowIndex => {
+    board.splice(rowIndex, 1);
+    board.unshift(Array(COLS).fill(0));
+  });
+
+  updateScore(rowsToRemove.length);
+}
+
+function updateScore(rowsCleared) {
+  let points = 0;
+  switch (rowsCleared) {
+    case 1: points = 100; break;
+    case 2: points = 300; break;
+    case 3: points = 500; break;
+    case 4: points = 800; break;
+  }
+  score += points;
+  if (rowsCleared > 0) {
+    message = rowsCleared === 4 ? 'TETRIS!' : `Line ${rowsCleared}`;
+    animFrame = 0; // Reset animation frame counter
+  } else {
+    message = '';
+  }
 }
 
 function update() {
   drawBoard();
   drawShape(currentShape, currentX, currentY, currentColor);
+  drawMessage();
+  drawScore();
 }
 
 function spawnShape() {
@@ -81,6 +129,8 @@ function spawnShape() {
   currentY = 0;
   if (collide(currentX, currentY, currentShape)) {
     board = Array.from({ length: ROWS }, () => Array(COLS).fill(0)); // Reiniciar el tablero si el juego termina
+    score = 0;
+    message = 'Game Over';
   }
 }
 
@@ -112,6 +162,23 @@ function rotateShape() {
   }
 }
 
+function animateMessage() {
+  if (message) {
+    context.save();
+    context.font = '30px Arial';
+    context.fillStyle = 'black';
+    context.textAlign = 'center';
+    context.globalAlpha = 1 - (animFrame / 30);
+    context.fillText(message, canvas.width / 2, canvas.height / 2 - 20);
+    context.restore();
+    animFrame++;
+    if (animFrame > 30) {
+      message = '';
+      animFrame = 0;
+    }
+  }
+}
+
 // Agregar manejadores de eventos para los botones
 document.getElementById('left').addEventListener('click', () => move(-1));
 document.getElementById('right').addEventListener('click', () => move(1));
@@ -121,6 +188,7 @@ document.getElementById('down').addEventListener('click', () => drop());
 // Función para el bucle del juego
 function gameLoop() {
   drop();
+  animateMessage();
   setTimeout(gameLoop, 1000);
 }
 
