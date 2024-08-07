@@ -48,7 +48,7 @@ function drawShape(shape, x, y, color) {
 function drawMessage() {
   if (message) {
     context.font = '30px Arial';
-    context.fillStyle = 'black';
+    context.fillStyle = 'white';
     context.textAlign = 'center';
     context.fillText(message, canvas.width / 2, canvas.height / 2);
   }
@@ -166,7 +166,7 @@ function animateMessage() {
   if (message) {
     context.save();
     context.font = '30px Arial';
-    context.fillStyle = 'black';
+    context.fillStyle = 'white';
     context.textAlign = 'center';
     context.globalAlpha = 1 - (animFrame / 30);
     context.fillText(message, canvas.width / 2, canvas.height / 2 - 20);
