@@ -1,6 +1,6 @@
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
-const S = 30; // Tamaño del bloque
+const S = 30; // Tamaño del bloque en píxeles
 
 const ROWS = canvas.height / S;
 const COLS = canvas.width / S;
@@ -112,32 +112,18 @@ function rotateShape() {
   }
 }
 
-document.addEventListener('keydown', e => {
-  switch (e.key) {
-    case 'ArrowLeft':
-      move(-1);
-      break;
-    case 'ArrowRight':
-      move(1);
-      break;
-    case 'ArrowDown':
-      drop();
-      break;
-    case 'ArrowUp':
-      rotateShape();
-      break;
-  }
-});
+// Agregar manejadores de eventos para los botones
+document.getElementById('left').addEventListener('click', () => move(-1));
+document.getElementById('right').addEventListener('click', () => move(1));
+document.getElementById('rotate').addEventListener('click', () => rotateShape());
+document.getElementById('down').addEventListener('click', () => drop());
 
-canvas.addEventListener('touchstart', e => {
-  e.preventDefault();
-  // Asignar los eventos táctiles para controlar el juego
-});
-
+// Función para el bucle del juego
 function gameLoop() {
   drop();
   setTimeout(gameLoop, 1000);
 }
 
+// Iniciar el juego
 spawnShape();
 gameLoop();
