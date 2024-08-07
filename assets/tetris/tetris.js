@@ -56,9 +56,9 @@ function drawMessage() {
 
 function drawScore() {
   context.font = '20px Arial';
-  context.fillStyle = 'black';
-  context.textAlign = 'left';
-  context.fillText('Score: ' + score, 10, canvas.height - 10);
+  context.fillStyle = 'white';
+  context.textAlign = 'right';
+  context.fillText('Puntaje: ' + score, 10, canvas.width - 10);
 }
 
 function collide(x, y, shape) {
