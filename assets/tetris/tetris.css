@@ -1,12 +1,36 @@
 #tetris-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   background: #000;
+  position: relative;
 }
 
 canvas {
   border: 2px solid #fff;
   background: #000;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 10px;
+  gap: 10px;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  background: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+  background: #333;
 }
