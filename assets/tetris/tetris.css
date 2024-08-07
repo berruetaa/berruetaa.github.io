@@ -14,10 +14,9 @@ canvas {
 
 #controls {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 10px;
-  gap: 10px;
+  gap: 10px; /* Espacio entre botones */
+  margin-top: 10px; /* Espacio entre el canvas y los controles */
+  z-index: 1; /* Asegura que los controles estén encima del canvas */
 }
 
 button {
@@ -33,4 +32,9 @@ button {
 
 button:active {
   background: #333;
+}
+
+/* Previene el zoom en dispositivos móviles */
+body {
+  touch-action: none;
 }
