@@ -2,7 +2,7 @@
 title: Berrueta
 description: 
 url: "https://berrueta.xyz"
-baseurl: "" # Por lo general, se deja vacío para sitios en la raíz del dominio
+baseurl: ""
 
 # Configuración de los enlaces de navegación
 nav_links:

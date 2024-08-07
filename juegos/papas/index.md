@@ -32,6 +32,21 @@ title1: "Todos los juegos de Papa's"
           <img src="{{ '/assets/flash/papastacomia/papastacomia_100x100.jpg' | relative_url }}" alt="Papa's Taco Mia">
         </a>
       </div>
+      <div class="game-item">
+        <a href="{{ '/juegos/papas/donuteria' | relative_url }}">
+          <img src="{{ '/assets/flash/papasdonuteria/donuteria_100x100.jpg' | relative_url }}" alt="Papa's Donuteria">
+        </a>
+      </div>
+      <div class="game-item">
+        <a href="{{ '/juegos/papas/hotdoggeria' | relative_url }}">
+          <img src="{{ '/assets/flash/papashotdoggeria/papashotdoggeria_100x100.jpg' | relative_url }}" alt="Papa's Hotdoggeria">
+        </a>
+      </div>
+      <div class="game-item">
+        <a href="{{ '/juegos/papas/pancakeria' | relative_url }}">
+          <img src="{{ '/assets/flash/papaspancakeria/papaspancakeria_100x100.jpg' | relative_url }}" alt="Papa's Pancakeria">
+        </a>
+      </div>
     </div>
   </div>
 </div>
