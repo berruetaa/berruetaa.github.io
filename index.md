@@ -7,7 +7,6 @@ title1: "Sebastián Berrueta"
 # Página principal
 
 <div class="container-wrapper">
-  <!--
   <div class="custom-container">
     <h2>Redes Sociales</h2>
     <div class="social-links">
@@ -23,7 +22,6 @@ title1: "Sebastián Berrueta"
       <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Ir a Herramientas</a>
     </div>
   </div>
-  -->
 
   <div class="custom-container">
     <h2>Juegos</h2>
