@@ -8,6 +8,10 @@ title1: "Sebastián Berrueta"
 
 <div class="container-wrapper">
   <div class="custom-container">
+    <h2><a href="https://blog.berrueta.xyz/">Ir al Blog</a></h2>
+  </div>
+  
+  <div class="custom-container">
     <h2>Redes Sociales</h2>
     <div class="social-links">
       <a href="https://twitter.com/berruetx" class="social-btn twitter">Twitter</a>
