@@ -5,7 +5,7 @@ title1: "Sebastián Berrueta"
 ---
 
 # Página principal
-<div class="container-wrapper>
+<div class="container-wrapper">
   
   <div class="custom-container">
     <h2><a href="https://blog.berrueta.xyz/">Ir al Blog</a></h2>
