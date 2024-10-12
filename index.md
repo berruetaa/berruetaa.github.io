@@ -27,8 +27,8 @@ title1: "Sebastián Berrueta"
   <div class="custom-container">
     <h2>Links útiles</h2>
     <div class="useful-links">
-      <a href="https://liceo.berrueta.xyz" class="useful-btn main-btn">Ir a Liceo</a>
-      <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Ir a Herramientas</a>
+      <a href="https://academico.berrueta.xyz" class="useful-btn main-btn">Académico</a>
+      <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Herramientas</a>
     </div>
   </div>
 
