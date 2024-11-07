@@ -189,6 +189,11 @@ a:hover {
   background-size: contain;
 }
 
+.game-btn.nutsort {
+  background: url('/assets/images/nutsort.png') no-repeat center center;
+  background-size: contain;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
