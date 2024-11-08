@@ -1,0 +1,16 @@
+{
+    "name": "Nut Sort",
+    "short_name": "NutSort",
+    "description": "Puzzle game to sort nuts by color",
+    "start_url": "/juegos/nutsort/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "/assets/images/nutsort.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

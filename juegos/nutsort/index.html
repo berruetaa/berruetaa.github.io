@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nut Sort</title>
+    <link rel="manifest" href="juegos/nutsort/manifest.json">
     <style>
         html, body {
             height: 100%;
@@ -27,6 +28,17 @@
             left: 0;
         }
     </style>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/juegos/nutsort/service-worker.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+        }
+    </script>
 </head>
 <body>
     <div id="game-container">
