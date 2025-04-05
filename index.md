@@ -8,7 +8,7 @@ title1: "Sebastián Berrueta"
 <div class="container-wrapper">
   
   <div class="custom-container">
-    <h2><a href="https://blog.berrueta.xyz/">Ir al Blog</a></h2>
+    <h2><a href="https://blog.berrueta.uy/">Ir al Blog</a></h2>
   </div>
   
 </div>
@@ -27,8 +27,8 @@ title1: "Sebastián Berrueta"
   <div class="custom-container">
     <h2>Links útiles</h2>
     <div class="useful-links">
-      <a href="https://academico.berrueta.xyz" class="useful-btn main-btn">Académico</a>
-      <a href="https://tools.berrueta.xyz" class="useful-btn main-btn">Herramientas</a>
+      <a href="https://academico.berrueta.uy" class="useful-btn main-btn">Académico</a>
+      <a href="https://tools.berrueta.uy" class="useful-btn main-btn">Herramientas</a>
     </div>
   </div>
 
