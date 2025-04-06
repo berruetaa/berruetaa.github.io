@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <title>{{ page.title }}</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/ico/apple-touch-icon.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/ico/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/ico/favicon-16x16.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/assets/ico/site.webmanifest' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-  <meta property="og:title" content="Página personal de Sebastián Berrueta">
-  <meta property="og:description" content="Bienvenido a mi página personal. Aquí encontrarás información sobre mis proyectos y mucho más.">
-  <meta property="og:url" content="https://berrueta.uy">
-  <meta property="og:image" content="https://www.transparenttextures.com/patterns/stardust.png">
-  <meta name="facebook-domain-verification" content="4qm3pqg14v22cg7zkglgx3dhouykla" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQK5TGVLX1"></script>
-  <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'G-YQK5TGVLX1');
-  </script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>{{ page.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/ico/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/ico/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/ico/favicon-16x16.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/assets/ico/site.webmanifest' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Include Lagom CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/lagom-css@1.0.0/dist/lagom.min.css">
+    
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    
+    <meta property="og:title" content="Página personal de Sebastián Berrueta">
+    <meta property="og:description" content="Bienvenido a mi página personal. Aquí encontrarás información sobre mis proyectos y mucho más.">
+    <meta property="og:url" content="https://berrueta.uy">
+    <meta property="og:image" content="https://www.transparenttextures.com/patterns/stardust.png">
+    <meta name="facebook-domain-verification" content="4qm3pqg14v22cg7zkglgx3dhouykla" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQK5TGVLX1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+  
+     gtag('config', 'G-YQK5TGVLX1');
+    </script>
+  </head>  
 <body>
   <div id="status-bar"></div>
   <div id="stars"></div>
